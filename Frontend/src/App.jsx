@@ -7,7 +7,7 @@ function App() {
   console.log("Hello integration")
 
   function fetchNotes(){
-    axios.get("http://localhost:3000/api/notes")
+    axios.get("https://day-9-bnls.onrender.com/api/notes")
      .then(res=>{
        setNotes(res.data.notes)
         })
@@ -26,7 +26,7 @@ function App() {
 
     console.log(title.value,description.value)
 
-    axios.post("http://localhost:3000/api/notes",{
+    axios.post("https://day-9-bnls.onrender.com/api/notes",{
     title:title.value,
     description:description.value
   })
@@ -39,7 +39,7 @@ function App() {
   }
 
   function handleDeleteNote(noteId){
-    axios.delete(`http://localhost:3000/api/notes/${noteId}`)
+    axios.delete(`https://day-9-bnls.onrender.com/api/notes/${noteId}`)
     .then(res=>{
       console.log(res.data)
       fetchNotes()
@@ -50,7 +50,7 @@ function App() {
     const newDescription = prompt("Enter new description",note.description);
 
     if(newDescription === null) return;
-    axios.patch(`http://localhost:3000/api/notes/${note._id}`,{
+    axios.patch(`https://day-9-bnls.onrender.com/api/notes/${note._id}`,{
       description:newDescription
     })
     .then(res=>{
